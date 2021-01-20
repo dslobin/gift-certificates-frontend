@@ -1,0 +1,84 @@
+<div class="checkout-wrapper">
+  <div class="header">
+    <div class="title">
+      <span>Checkout</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="product-wrapper" *ngIf="cartItems.length > 0">
+      <div>
+        <div class="product" *ngFor="let item of cartItems">
+
+          <div class="product-image">
+            <img src="/assets/images/no-image.png" alt="{{item.giftCertificate?.name}}">
+          </div>
+
+          <div class="product-details">
+            <div class="product-title">{{item.giftCertificate?.name}}</div>
+            <p class="product-description">{{item.giftCertificate?.description}}</p>
+          </div>
+
+          <div class="product-quantity">
+            <div class="action">
+              <i class="material-icons arrow-down"
+                 (click)="changeCartItemCount(item, -1)">keyboard_arrow_down</i>
+              <span>{{item.quantity}}</span>
+              <i class="material-icons arrow-up"
+                 (click)="changeCartItemCount(item, 1)">keyboard_arrow_up</i>
+            </div>
+          </div>
+
+          <div class="product-price">
+            <h3>{{item.giftCertificate?.price | currency}}</h3>
+          </div>
+
+          <div class="product-removal">
+            <button class="remove-product"
+                    (click)="clearCartItem(item)"><span>Remove Item</span>
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+
+          <div class="cart-item-price align-end">
+            <h3><span class="content">Item Total:</span> {{item | itemCost | currency}}</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="total">
+        <h3>Total</h3>
+        <h3 class="price">{{cartTotal | currency}}</h3>
+      </div>
+
+      <div class="btn-group">
+        <button mat-button
+                class="btn btn-back"
+                (click)="redirectToCertificatesPage()"
+        >Catalog
+        </button>
+        <button mat-button
+                class="btn btn-checkout"
+                (click)="redirectToOrderDetails()"
+        >Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-wrapper">
+    <div *ngIf="cartItems.length === 0">
+      <h1>
+        <mat-icon>shopping_cart</mat-icon>
+        Your cart is currently empty!
+      </h1>
+      <button mat-button
+              class="btn-checkout"
+              (click)="redirectToCertificatesPage()"
+      >Return To Shop
+      </button>
+    </div>
+  </div>
+</div>
