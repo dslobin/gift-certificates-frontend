@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.navbar {
+  background: var(--white-color);
+  min-height: 60px;
+}
+
+.main {
+  flex: 1;
+  background: var(--light-color);
+}

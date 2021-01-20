@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --white-color: #ffffff;
+  --light-color: #f2f2f2;
+  --green-color: #6fcf97;
+  --red-color: #dc3545;
+  --gray-color: #757575;
+  --dark-color: #343434;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.align-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.content-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.category {
+  display: inline-block;
+  padding: 5px 5px;
+  color: #004085;
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+  border-radius: .25rem;
+  margin: 0 5px 5px 0;
+}
