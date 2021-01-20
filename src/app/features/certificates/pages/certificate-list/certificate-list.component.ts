@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GiftCertificate} from '../../../../core/models/gift-certificate';
 import {GiftCertificateService} from '../../../../core/http/gift-certificate.service';
 import {HttpParams} from '@angular/common/http';
@@ -10,7 +10,6 @@ import {CartManagerService} from '../../../cart/services/cart-manager.service';
 import {AuthenticationService} from '../../../../core/http/authentication.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-certificate-list',
@@ -73,15 +72,9 @@ export class CertificateListComponent implements OnInit {
       this.certificatesStartPage,
       this.certificatesPerPage
     );
-    /*const page = params.get('page');
-    const pageSize = params.get('size');
-    const tags = params.get('tags');
-    const name = params.get('name');
-    console.log(`Page: ${page}\nSize: ${pageSize}\nTags: ${tags}\nName: ${name}\n`);*/
     this.certificateService.getAllCertificates(params)
       .subscribe(
         (certificates) => {
-          // console.log(certificates.map(c => c.id));
           this.certificates = certificates;
         },
         (error) => {
@@ -139,20 +132,16 @@ export class CertificateListComponent implements OnInit {
   ): HttpParams {
     let params: HttpParams = new HttpParams();
     if (certificateName) {
-      // console.log(`Certificate name: ${certificateName}`);
       params = params.append('name', certificateName);
     }
     if (tags.length > 0) {
-      // console.log(`Certificate tags: ${tags}`);
       params = params.append(`tags`, tags.join(', '));
     }
     if (page) {
-      // console.log(`Certificate page: ${page}`);
       page = page - 1;
       params = params.append('page', page.toString());
     }
     if (pageSize) {
-      // console.log(`Certificate page size: ${pageSize}`);
       params = params.append('size', pageSize.toString());
     }
     return params;
@@ -163,12 +152,10 @@ export class CertificateListComponent implements OnInit {
   }
 
   redirectToCertificateDetails(certificateId: number): void {
-    // this.saveSearchParameters();
     this.router.navigateByUrl(`/certificates/${certificateId}`);
   }
 
   redirectToNewCertificate(): void {
-    // this.saveSearchParameters();
     this.router.navigateByUrl(`/certificates/new`);
   }
 
@@ -196,7 +183,6 @@ export class CertificateListComponent implements OnInit {
       categories: this.searchedTags,
       name: this.certificateName
     });
-    console.log('Searching parameters were set...');
   }
 
   private saveSearchParameters(): void {
@@ -208,6 +194,5 @@ export class CertificateListComponent implements OnInit {
       localStorage.removeItem('searchedCertificate');
       localStorage.setItem('searchedCertificate', this.certificateName);
     }
-    console.log('Searching parameters saved...');
   }
 }

@@ -70,7 +70,7 @@ h4 {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .col-1-5 {
     width: 50%;
   }
@@ -85,6 +85,10 @@ h4 {
 }
 
 @media (max-width: 1024px) {
+  .col-1-5 {
+    width: 20%;
+  }
+
   .grid {
     margin: 0;
   }

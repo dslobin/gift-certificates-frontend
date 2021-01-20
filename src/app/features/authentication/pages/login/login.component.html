@@ -25,7 +25,7 @@
                  formControlName="password"
           >
           <mat-error
-            *ngIf=" loginForm.get('password').hasError('minLength') && !loginForm.get('password').hasError('required')">
+            *ngIf="loginForm.get('password').hasError('minlength')">
             The password must be of minimum length 6 characters
           </mat-error>
           <mat-error *ngIf="loginForm.get('password').hasError('required')">
