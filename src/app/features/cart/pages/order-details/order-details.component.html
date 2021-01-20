@@ -1,0 +1,70 @@
+<div class="order-details-wrapper">
+  <div class="header">
+    <div class="title">
+      <span>Your Order Details</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="product-wrapper" *ngIf="cartItems.length > 0">
+      <div>
+        <div class="product" *ngFor="let item of cartItems">
+
+          <div class="product-image">
+            <img src="/assets/images/no-image.png" alt="{{item.giftCertificate?.name}}">
+          </div>
+
+          <div class="product-details">
+            <div class="product-title">{{item.giftCertificate?.name}}</div>
+            <div>
+              <p class="product-description">{{item.giftCertificate?.description}}</p>
+            </div>
+          </div>
+
+          <div class="product-quantity align-center">
+            <div class="action">
+              <p><span>Quantity:</span> {{item.quantity}}</p>
+            </div>
+          </div>
+
+          <div class="product-price align-center">
+            <h3>{{item.giftCertificate?.price | currency}}</h3>
+          </div>
+
+          <div class="cart-item-price align-end">
+            <h3><span class="content">Item Total:</span> {{item | itemCost | currency}}</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="total align-end">
+        <h3>Total</h3>
+        <h3 class="price">{{cartTotal | currency}}</h3>
+      </div>
+
+      <div class="btn-group">
+        <button mat-button
+                class="btn btn-back"
+                (click)="redirectToCartPage()"
+        >Back to Cart</button>
+        <button mat-button
+                class="btn btn-checkout"
+                [disabled]="!authService.hasRole('ROLE_USER')"
+                (click)="onSubmit()"
+        >Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-wrapper">
+    <div *ngIf="cartItems.length === 0">
+      <h1><mat-icon>shopping_cart</mat-icon> Unable to place an order because your cart is empty!</h1>
+      <button mat-button
+              class="btn-checkout"
+              (click)="redirectToCartPage()"
+      >Return To Cart</button>
+    </div>
+  </div>
+</div>
