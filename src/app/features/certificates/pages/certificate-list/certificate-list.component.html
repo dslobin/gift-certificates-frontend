@@ -1,0 +1,104 @@
+<!--<div class="category-container">
+  <div class="item" *ngFor="let category of tags">
+    <img src="/assets/images/no-image.png" alt="{{category | tagName}}">
+    <span class="caption">{{category | tagName}}</span>
+  </div>
+</div>-->
+<div class="search-container">
+  <div class="search-form">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="input-group">
+        <mat-label>Categories</mat-label>
+        <mat-select multiple formControlName="categories">
+          <mat-option *ngFor="let category of selectTags$ | async"
+                      [value]="category.name">{{category | tagName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-group">
+        <mat-label>Certificate Name</mat-label>
+        <input matInput
+               type="text"
+               placeholder="Search by item name"
+               formControlName="name"
+        >
+      </mat-form-field>
+
+      <button mat-button
+              class="btn-clear input-group"
+              *ngIf="!isSearchFormEmpty()"
+              (click)="clearSearchParameters()"
+      >Clear
+      </button>
+
+      <button mat-button
+              class="btn-submit input-group"
+      >Search
+      </button>
+
+      <div>
+        <button mat-button
+                class="btn-add input-group"
+                (click)="redirectToNewCertificate()"
+                *ngIf="authService.hasAnyRole(['ROLE_ADMIN'])">Add Certificate
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="content">
+
+  <app-top-button></app-top-button>
+
+  <div id="products" class="products">
+    <div class="product-card"
+         *ngFor="let certificate of certificates | slice : certificatesStartPage:certificatesPerPage">
+      <div class="product-image">
+        <img src="/assets/images/no-image.png" alt="{{certificate.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name-container">
+          <div class="product-name">
+            <!-- routerLink="{{certificate.id}}" -->
+            <a (click)="redirectToCertificateDetails(certificate.id)">{{certificate.name}}</a>
+          </div>
+        </div>
+        <div class="description">
+          <p>{{certificate.description}}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="product-info">
+        <div class="product-price">
+          <div>
+            <h3>{{certificate.price | currency}}</h3>
+          </div>
+          <div>
+            <button mat-button
+                    class="btn-cart"
+                    (click)="redirectToCertificateDetails(certificate.id)"
+                    *ngIf="authService.hasAnyRole(['ROLE_ADMIN'])"
+            >More Details
+            </button>
+
+            <button mat-button
+                    class="btn-cart"
+                    (click)="addCertificateToCart(certificate, 1)"
+                    *ngIf="!authService.hasAnyRole(['ROLE_ADMIN'])"
+            >Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-show-more-container">
+      <button mat-button
+              class="btn-show-more"
+              [disabled]="certificatesPerPage > certificates.length"
+              (click)="showMoreCertificates()">Show More
+      </button>
+    </div>
+  </div>
+</div>
