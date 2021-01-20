@@ -1,0 +1,74 @@
+<div class="content-wrapper">
+  <div class="registration-form">
+    <div class="form-header">
+      <div class="title">
+        <span>Register</span>
+      </div>
+    </div>
+    <div class="form-body">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Email</mat-label>
+            <input matInput
+                   type="text"
+                   formControlName="email"
+            >
+            <mat-error
+              *ngIf=" signUpForm.get('email').hasError('email') && !signUpForm.get('email').hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-group">
+            <mat-label>Password</mat-label>
+            <input matInput
+                   type="password"
+                   formControlName="password"
+            >
+            <mat-error
+              *ngIf=" signUpForm.get('password').hasError('minLength') && !signUpForm.get('password').hasError('required')">
+              The password must be of minimum length 6 characters
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('password').hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline" class="form-group">
+          <mat-label>First Name</mat-label>
+          <input matInput
+                 type="text"
+                 formControlName="firstName"
+          >
+          <mat-error *ngIf="signUpForm.get('firstName').hasError('required')">
+            First name is <strong>required</strong>
+          </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Last Name</mat-label>
+          <input matInput
+                 type="text"
+                 formControlName="lastName"
+          >
+          <mat-error *ngIf="signUpForm.get('lastName').hasError('required')">
+            Last name is <strong>required</strong>
+          </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="btn-group">
+          <button mat-button (click)="redirectToLoginPage()" class="btn btn-cancel">Cancel</button>
+          <button mat-button type="submit" class="btn btn-submit">Sign Up</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
