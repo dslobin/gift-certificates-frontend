@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Your order was successfully processed.</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Thank you for your order!</h3>
+  <p>Order number: {{data.orderId}}</p>
+  <p>Email: {{data.userEmail}}</p>
+  <p>Last name: {{data.lastName}}</p>
+  <p>First name: {{data.firstName}}</p>
+  <p>Order cost: {{data.cost | currency}}</p>
+  <p>Please call customer service toll free at +375(29)111-11-11 with any questions or comments.</p>
+</mat-dialog-content>
+<mat-dialog-actions class="btn-group">
+  <button mat-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>
