@@ -1,0 +1,38 @@
+<div class="product-details-wrapper">
+  <div class="product-short-description">
+    <div class="product-image">
+      <img src="" alt="{{certificate?.name}}">
+    </div>
+    <div class="product-description-container">
+      <h2>{{certificate?.name}}</h2>
+      <div class="category-container">
+        <span class="category" *ngFor="let tag of certificate?.tags">{{tag?.name}}</span>
+      </div>
+      <div>
+        <span>Certificate Validity Period:</span>
+        <h4>{{certificate?.durationInDays}} days</h4>
+      </div>
+      <div class="cart">
+        <h2>{{certificate?.price | currency}}</h2>
+        <a (click)="addCertificateToCart(certificate, 1)"
+           *ngIf="!authService.hasAnyRole(['ROLE_ADMIN'])"
+        >Add to Cart <i class="material-icons">shopping_cart</i>
+        </a>
+      </div>
+      <div>
+        <button mat-button
+                class="edit-btn"
+                (click)="redirectToEditCertificatePage(certificate.id)"
+                *ngIf="authService.hasAnyRole(['ROLE_ADMIN'])"
+        >Edit Certificate
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="product-long-description">
+      <h3>Item Detailed Description</h3>
+      <p>{{certificate?.description}}</p>
+    </div>
+  </div>
+</div>
