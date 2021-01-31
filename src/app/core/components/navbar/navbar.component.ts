@@ -3,7 +3,6 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {AuthenticationService} from '../../http/authentication.service';
-import {CartManagerService} from '../../../features/cart/services/cart-manager.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,21 +16,13 @@ export class NavbarComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-  cartItemsCount = 0;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     public authService: AuthenticationService,
-    private cartManager: CartManagerService,
   ) {
   }
 
   ngOnInit(): void {
-    /*this.cartManager.cartSubject.subscribe(
-      (cart) => {
-        const cartItems = cart.cartItems;
-        this.cartItemsCount = cartItems.length;
-      }
-    );*/
   }
 }

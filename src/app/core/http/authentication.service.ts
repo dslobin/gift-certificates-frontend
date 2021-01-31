@@ -6,12 +6,13 @@ import {Observable} from 'rxjs';
 import {SignUpRequest} from '../../features/authentication/models/sign-up-request';
 import {User} from '../models/user';
 import {Role} from '../models/role';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private authBaseUrl = 'http://localhost:8080/api/auth';
+  private authBaseUrl = environment.authBaseUrl;
   private TOKEN_KEY = 'auth-token';
   private LOGIN_KEY = 'user-login';
   private ROLES_KEY = 'user-roles';

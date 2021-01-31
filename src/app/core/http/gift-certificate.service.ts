@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {GiftCertificate} from '../models/gift-certificate';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiftCertificateService {
-  private certificateBaseUrl = 'http://localhost:8080/api/certificates';
+  private certificateBaseUrl = environment.certificateBaseUrl;
 
   constructor(
     private httpClient: HttpClient,

@@ -17,20 +17,26 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './core/interceptors/token.interceptor';
 import {CommonModule} from '@angular/common';
 import {HttpErrorInterceptor} from './core/interceptors/http-error.interceptor';
+import {NotFoundComponent} from './core/components/not-found/not-found.component';
+import {ForbiddenComponent} from './core/components/forbidden/forbidden.component';
+import {InternalServerErrorComponent} from './core/components/internal-server-error/internal-server-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    NotFoundComponent,
+    ForbiddenComponent,
+    InternalServerErrorComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     CommonModule,
     FeaturesModule,
     SharedModule,
+    AppRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,

@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  authBaseUrl: 'http://localhost:8080/api/auth',
+  cartBaseUrl: 'http://localhost:8080/api/cart',
+  certificateBaseUrl: 'http://localhost:8080/api/certificates',
+  orderBaseUrl: 'http://localhost:8080/api/orders',
+  tagBaseUrl: 'http://localhost:8080/api/tags'
 };
 
 /*

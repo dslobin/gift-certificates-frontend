@@ -29,9 +29,6 @@
         <li [ngClass]="{hidden: (isHandset$ | async)}" *ngIf="!authService.hasAnyRole(['ROLE_ADMIN'])">
           <a mat-button routerLink="cart" class="nav-link">
             <mat-icon aria-label="Shopping cart">shopping_cart</mat-icon>
-            <!--<span class="item-count"
-                  *ngIf="cartItemsCount > 0"
-            >{{cartItemsCount}}</span>-->
           </a>
         </li>
         <li *ngIf="!authService.isLoggedIn()" [ngClass]="{hidden: (isHandset$ | async)}">
