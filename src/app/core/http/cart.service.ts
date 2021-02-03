@@ -21,7 +21,6 @@ export class CartService {
   }
 
   addItem(cartItem: AddCartItem): Observable<Cart> {
-    console.log('Adding cart item in cart service...');
     return this.httpClient.put<Cart>(`${this.cartBaseUrl}`, cartItem);
   }
 

@@ -41,7 +41,6 @@ export class AuthenticationService {
     const userRoleNames = this.getUserRoles().map(r => r.name);
 
     const result = roles.find(r => userRoleNames.includes(r)) != null;
-    // console.log(`User roles: ${userRoleNames},\nParameter roles: ${roles},\nHas any role result: ${result}`);
     return result;
   }
 
@@ -52,7 +51,6 @@ export class AuthenticationService {
     const userRoleNames = this.getUserRoles().map(r => r.name);
 
     const result = userRoleNames.includes(role);
-    // console.log(`User roles: ${userRoleNames},\nParameter role: ${role},\nHas role result: ${result}`);
     return result;
   }
 
