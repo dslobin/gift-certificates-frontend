@@ -1,3 +1,5 @@
+@import "src/app/shared/styles/_colors.scss";
+
 .registration-form {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
 }
 
 .form-header {
-  color: var(--white-color);
+  color: $white-color;
   background-color: #bdbdbd;
 
   .title {
@@ -18,7 +20,7 @@
 }
 
 .form-body {
-  background-color: var(--white-color);
+  background-color: $white-color;
 }
 
 .form-group {
@@ -41,15 +43,15 @@
 }
 
 .btn-submit {
-  color: var(--white-color);
-  border: 1px solid var(--green-color);
-  background-color: var(--green-color);
+  color: $white-color;
+  border: 1px solid $green-color;
+  background-color: $green-color;
 }
 
 .btn-cancel {
   color: #9a9a9a;
   border: 1px solid #d9d9d9;
-  background-color: var(--white-color);
+  background-color: $white-color;
   margin-right: 10px;
 }
 

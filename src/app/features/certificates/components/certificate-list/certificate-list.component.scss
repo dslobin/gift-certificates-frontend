@@ -1,3 +1,5 @@
+@import "src/app/shared/styles/_colors.scss";
+
 .category-container {
   background: #e0e0e0;
   display: flex;
@@ -20,8 +22,8 @@
   width: 127px;
   text-transform: uppercase;
   float: right;
-  color: var(--white-color);
-  background: var(--green-color) !important;
+  color: $white-color;
+  background: $green-color !important;
   text-align: center;
 }
 
@@ -30,7 +32,7 @@
   width: 100%;
   text-transform: uppercase;
   color: #828282;
-  background: var(--white-color) !important;
+  background: $white-color !important;
   text-align: center;
   border: 1px solid #828282;
 }
@@ -40,9 +42,9 @@
   width: 127px;
   text-transform: uppercase;
   float: right;
-  color: var(--red-color);
-  background: var(--white-color) !important;
-  border: 1px solid var(--red-color);
+  color: $red-color;
+  background: $white-color !important;
+  border: 1px solid $red-color;
   text-align: center;
 }
 
@@ -64,7 +66,7 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  background: var(--white-color);
+  background: $white-color;
   margin: 10px 5px;
 
   hr {
@@ -96,7 +98,7 @@
     }
 
     a:hover {
-      color: var(--green-color);
+      color: $green-color;
     }
 
     a:visited {
@@ -139,7 +141,7 @@
     margin: 5px 0 10px;
     color: #9a9a9a;
     border: 1px solid #d9d9d9;
-    background-color: var(--white-color);
+    background-color: $white-color;
     transition: all 0.3s ease 0s;
   }
 }
@@ -166,7 +168,7 @@
 .btn-show-more {
   color: #4f4f4f;
   font-size: 16px;
-  background-color: var(--white-color);
+  background-color: $white-color;
   border: 1px solid #4f4f4f;
 }
 

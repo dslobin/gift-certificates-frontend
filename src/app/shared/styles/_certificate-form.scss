@@ -1,11 +1,13 @@
+@import "src/app/shared/styles/_colors.scss";
+
 .certificate-form-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--white-color);
+  background-color: $white-color;
 
   .header {
-    color: var(--white-color);
+    color: $white-color;
     background-color: #bdbdbd;
 
     .title {
@@ -18,8 +20,13 @@
 
   .body {
     font-size: 14px;
-    color: var(--dark-color);
+    color: $dark-color;
   }
+}
+
+.description {
+  resize: none;
+  height: 92px;
 }
 
 .certificate-form {
@@ -33,11 +40,6 @@
   flex-basis: 50%;
   flex-grow: 1;
   padding: 20px 20px;
-}
-
-.description {
-  resize: none;
-  height: 92px;
 }
 
 .category-container {
@@ -59,13 +61,13 @@
   margin-right: 15px;
   color: #9a9a9a;
   border: 1px solid #d9d9d9;
-  background-color: var(--white-color);
+  background-color: $white-color;
 }
 
 .btn-submit {
-  color: var(--white-color);
-  border: 1px solid #6fcf97;
-  background-color: #6fcf97;
+  color: $white-color;
+  border: 1px solid $green-color;
+  background-color: $green-color;
 }
 
 @media all and (max-width: 600px) {

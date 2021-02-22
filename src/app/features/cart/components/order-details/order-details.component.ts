@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {CartManagerService} from '../../services/cart-manager.service';
 import {MatDialog} from '@angular/material/dialog';
-import {OrderConfirmationDialogComponent} from '../../components/order-confirmation-dialog/order-confirmation-dialog.component';
+import {OrderConfirmationDialogComponent} from '../order-confirmation-dialog/order-confirmation-dialog.component';
 import {OrderService} from '../../../../core/http/order.service';
 import {Order} from '../../../../core/models/order';
 import {AuthenticationService} from '../../../../core/http/authentication.service';

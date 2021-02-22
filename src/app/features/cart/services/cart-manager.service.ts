@@ -20,7 +20,9 @@ export class CartManagerService {
     private localStorageCartService: LocalStorageCartService,
     private authService: AuthenticationService
   ) {
-    this.getCartOrCreate();
+    if (!authService.hasRole('ROLE_ADMIN')) {
+      this.getCartOrCreate();
+    }
   }
 
   get cart$(): Observable<Cart> {
@@ -37,7 +39,7 @@ export class CartManagerService {
       console.log(`Local storage cart was selected.`);
       cart$ = of(this.localStorageCartService.getCart());
     }
-    cart$.subscribe((updatedCart) =>  {
+    cart$.subscribe((updatedCart) => {
       console.log(updatedCart);
       this.userCart$.next(updatedCart);
     });

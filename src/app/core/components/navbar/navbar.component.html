@@ -9,7 +9,7 @@
     <mat-nav-list>
       <a *ngIf="!authService.isLoggedIn()" mat-list-item routerLink="login">Login</a>
       <a *ngIf="!authService.isLoggedIn()" mat-list-item routerLink="sign-up">Sign Up</a>
-      <a mat-list-item routerLink="cart">Shopping Cart</a>
+      <a *ngIf="!authService.hasAnyRole(['ROLE_ADMIN'])" mat-list-item routerLink="cart">Shopping Cart</a>
       <a *ngIf="authService.isLoggedIn()" mat-list-item routerLink="logout">Logout</a>
     </mat-nav-list>
   </mat-sidenav>

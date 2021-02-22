@@ -1,11 +1,13 @@
+@import "src/app/shared/styles/_colors.scss";
+
 .checkout-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--white-color);
+  background-color: $white-color;
 
   .header {
-    color: var(--white-color);
+    color: $white-color;
     background-color: #bdbdbd;
 
     .title {
@@ -88,8 +90,8 @@
   text-align: center;
 
   .remove-product {
-    background-color: #dc3545;
-    color: var(--white-color);
+    background-color: $red-color;
+    color: $white-color;
     border: 0;
     padding: 5px 6px;
     font-size: 12px;
@@ -131,16 +133,16 @@
 
 .btn-checkout {
   margin-left: 5px;
-  color: var(--white-color);
-  border: 1px solid var(--green-color);
-  background-color: var(--green-color);
+  color: $white-color;
+  border: 1px solid $green-color;
+  background-color: $green-color;
 }
 
 .btn-back {
   margin-right: 5px;
   color: #9a9a9a;
   border: 1px solid #d9d9d9;
-  background-color: var(--white-color);
+  background-color: $white-color;
 }
 
 @media only screen and (min-width: 768px) {
